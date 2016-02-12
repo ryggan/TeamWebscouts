@@ -9,7 +9,7 @@ public class HashCodeV2 {
 
 		// Andreas är inne och ändrar :D
 		
-		String filename = "busy_day";
+		String annatfilename = "busy_day";
 		World.init(filename + ".in");
 
 		String output = "";
