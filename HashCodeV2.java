@@ -6,6 +6,8 @@ import java.awt.*;
 
 public class HashCodeV2 {
 	public static void main(String[] args) throws IOException {
+
+		// Andreas är inne och ändrar :D
 		
 		String filename = "busy_day";
 		World.init(filename + ".in");
