@@ -15,7 +15,7 @@ public class HashCodeV2 {
 		String output = "";
 
 		Order[] orders = World.getOrders();
-
+//asdf
 		// Some good code goes here
 
 		int nrOfRows = 0;
