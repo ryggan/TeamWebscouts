@@ -9,8 +9,8 @@ public class HashCodeV2 {
 
 		// Andreas är inne och ändrar :D
 		
-		String annatfilename = "busy_day";
-		World.init(filename + ".in");
+		String annatfilename = "busy_day hej";
+		World.init(filename + ".in"); // Testar
 
 		String output = "";
 
@@ -25,11 +25,11 @@ public class HashCodeV2 {
 		int nrOfOrdersDone = 0;
 		for (int i=0; i<orders.length; i++) {
 			int droneId = i % World.getNrOfDrones();
-			
+
 			//droneId = r.nextInt(World.getNrOfDrones());
 
 			Product[] productsInOrder = orders[i].getProducts();
-			
+
 			int weight = 0;
 
 			int[] productsInLoad = new int[100];
@@ -90,7 +90,7 @@ public class HashCodeV2 {
   //       System.out.println("Max load: " + World.getMaxLoad() + "");
   //       System.out.println("Warehouses: " + World.getWarehouses() + "");
   //       System.out.println("Products: " + World.getProducts() + "");
- 
+
 
 
 	}
@@ -163,7 +163,7 @@ class World {
 						String[] w = br.readLine().split("\\s+");
 						int xLocation = Integer.parseInt(w[0]);
 						int yLocation = Integer.parseInt(w[1]);
-						
+
 						int[] productsInOrder = new int[Integer.parseInt(br.readLine())];
 						String[] p = br.readLine().split("\\s+");
 						for (int j=0; j < p.length; j++) {
@@ -177,39 +177,39 @@ class World {
 		    }
 		}
 	}
- 
+
     public static int getRows() {
         return rows;
     }
- 
+
     public static int getCols() {
         return cols;
     }
- 
+
     public static int getNrOfDrones() {
         return nrOfDrones;
     }
- 
+
     public static int getmaxTurns() {
         return maxTurns;
     }
- 
+
     public static int getMaxLoad() {
         return maxLoad;
     }
- 
+
     public static int getNrOfProductTypes () {
         return nrOfProductTypes;
     }
- 
+
     public static int getNrOfWarehouses () {
         return nrOfWarehouses;
     }
- 
+
     public static int[] getProductWeights() {
         return productWeights;
     }
- 
+
     public static int getProductWeight(int i) {
         return productWeights[i];
     }
@@ -236,23 +236,23 @@ class Warehouse {
 	private int id;
 	private Point location;
 	private int[] stock;
-	
+
 	public Warehouse (int id, Point location, int[] stock) {
 		this.id = id;
 		this.location = location;
-		
+
 		this.stock = new int[stock.length];
 		for(int i = 0; i < stock.length; i++) {
 			this.stock[i] = stock[i];
 		}
 	}
-	
+
 	public int getProductStock(int product) {
 		return this.stock[product];
 	}
-	
+
 	public void setProductStock(int product) {
-		// this.stock[product] = 
+		// this.stock[product] =
 	}
 
     public boolean isInStock(int product) {
@@ -280,11 +280,11 @@ class Warehouse {
 
 
 class Order {
-	
+
 	private Point destination;
 	private Product[] items;
 	private boolean[] delivered;
-	
+
 	public Order (Point destination, int[] itemtypes) {
 		this.destination = destination;
 		delivered = new boolean[itemtypes.length];
@@ -294,7 +294,7 @@ class Order {
 			delivered[i] = false;
 		}
 	}
-	
+
 	public boolean getCompleted() {
 		boolean complete = true;
 		for(int i = 0; i < delivered.length; i++) {
@@ -314,15 +314,15 @@ class Order {
 
 
 class Product {
-	
+
 	private int type;
 	private int weight;
-	
+
 	public Product (int type, int weight) {
 		this.type = type;
 		this.weight = weight;
 	}
-	
+
 	public Product () {
 		this.type = 0;
 		this.weight = 0;
@@ -356,7 +356,7 @@ class FileOutput {
       // creates the file
       file.createNewFile();
       // creates a FileWriter Object
-      FileWriter writer = new FileWriter(file); 
+      FileWriter writer = new FileWriter(file);
       writer.write(str);
       writer.flush();
       writer.close();
