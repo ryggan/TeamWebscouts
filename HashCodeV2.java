@@ -8,11 +8,13 @@ public class HashCodeV2 {
 	public static void main(String[] args) throws IOException {
 
 		// Andreas är inne och ändrar :D
-
-		String filename = "busy_day hej";
+		
+		String annatfilename = "busy_day hej";
 		World.init(filename + ".in");
 
 		String output = "";
+
+		// Andreas ändrar mera
 
 		Order[] orders = World.getOrders();
 //asdf
