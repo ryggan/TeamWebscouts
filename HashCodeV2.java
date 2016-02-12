@@ -1,4 +1,4 @@
-import java.io.*;
+﻿import java.io.*;
 import java.util.*;
 import java.awt.*;
 
@@ -13,6 +13,8 @@ public class HashCodeV2 {
 		String output = "";
 
 		Order[] orders = World.getOrders();
+
+		// Some good code goes here
 
 		int nrOfRows = 0;
 		Random r = new Random();
