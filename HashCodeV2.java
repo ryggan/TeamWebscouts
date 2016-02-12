@@ -14,6 +14,8 @@ public class HashCodeV2 {
 
 		String output = "";
 
+		// Andreas ändrar mera
+
 		Order[] orders = World.getOrders();
 
 		int nrOfRows = 0;
