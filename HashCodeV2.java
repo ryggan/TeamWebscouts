@@ -1,4 +1,4 @@
-import java.io.*;
+﻿import java.io.*;
 import java.util.*;
 import java.awt.*;
 
@@ -17,6 +17,8 @@ public class HashCodeV2 {
 		// Andreas ändrar mera
 
 		Order[] orders = World.getOrders();
+//asdf
+		// Some good code goes here
 
 		int nrOfRows = 0;
 		Random r = new Random();
