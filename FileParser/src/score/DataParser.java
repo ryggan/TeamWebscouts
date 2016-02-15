@@ -41,20 +41,19 @@ public class DataParser {
 		//Third row holds # of warehouses
 		mapIntegers(singleData, new String[]{"warehouseAmount"});
 		
-		//Tons of rows for warehouses
-		mapWarehouses(warehouses, singleData.get("warehouseAmount"));
+		//Load warehouses
+		ObjectMold warehouseMold = new ObjectMold(Warehouse.class, "Warehouse");
+		for (int i = 0; i < singleData.get("warehouseAmount"); ++i)
+			warehouses.add((Warehouse) warehouseMold.create(fetchLines(2)));
 		
 		mapIntegers(singleData, new String[]{"orderAmount"});
-		mapOrders(orders, singleData.get("orderAmount"));
+		
+		// TODO: Replace String with class constructor (class.getConstructor(Class<?>..))
+		//Load orders
+		ObjectMold orderMold = new ObjectMold(Order.class, "Order");
+		for (int i = 0; i < singleData.get("orderAmount"); ++i)
+			orders.add((Order) orderMold.create(fetchLines(3)));
 	}
-	
-	//1. Method that takes one line, String of prameter names, and a Map<String, Integer>
-	/**
-	 * 
-	 * @param map map to place <key, value> pairs in.
-	 * @param keys keys to the values. For example, {"totalRows", "totalColumns", "availableDrones"}
-	 */
-
 	
 	public void mapIntegers(Map<String, Integer> map, String[] keys) {
 		for (String key : keys)
@@ -68,45 +67,6 @@ public class DataParser {
 		List<Integer> list = stringToIntegerList(line);
 			
 		map.put(key, list);
-	}
-	
-	public void mapWarehouses(List<Warehouse> warehouses, int amount) throws ClassNotFoundException, IOException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		ObjectMold warehouseMold = new ObjectMold(Warehouse.class, "Warehouse");
-		
-		for (int i = 0; i < amount; ++i) {
-			warehouseMold.create(fetchLines(2));
-		}
-	}
-	
-	public void mapOrders(List<Order> orderList, int amount) throws ClassNotFoundException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
-		/*for (int i = 0; i < amount; ++i) {
-			int posX = in.nextInt();
-			int posY = in.nextInt();
-			
-			//Go to next line, skip # of products (it is given in line after anyways)
-			in.nextLine();
-			in.nextLine();
-			
-			String productTypes = in.nextLine();
-			List<Integer> products = stringToIntegerList(productTypes);
-			
-			Map<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
-			
-			for (int id : products) {
-				Integer prevAmount = tempMap.get(id) == null ? 0 : tempMap.get(id);
-				if (prevAmount == 0) {
-					tempMap.put(id, 0);
-				}
-				
-				tempMap.put(id, prevAmount + 1);
-			}
-		}*/
-		
-		ObjectMold orderMold = new ObjectMold(Order.class, "Order");
-		for (int i = 0; i < amount; ++i) {
-			orders.add((Order) orderMold.create(fetchLines(3)));
-		}
-		
 	}
 	
 	private List<Integer> stringToIntegerList(String s) {
